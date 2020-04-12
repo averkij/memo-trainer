@@ -10,14 +10,23 @@ I'm recommending you to read this book, but briefly here it are the major points
 1. Translate the digits to the letters (I'm using Cyrillic alphabet since my native language is Russian) and strongly memorize them.
 
 	0 - О (shape similarity)
+	
 	1 - А (the first letter of the alphabet)
+	
 	2 - Д ("Два")
+	
 	3 - Т ("Три")
+	
 	4 - Ч ("Четыре")
+	
 	5 - П ("Пять")
+	
 	6 - Е (the sixth letter of the alphabet)
+	
 	7 - С ("Семь")
+	
 	8 - В ("Восемь")
+	
 	9 - Р ("shape similarity")
 
 2. Translate the numbers from 0 to 99 into letters and map them to the persons you know perfectly (celebrity or friend of yours) and can recall them by this two letter no matter what. It's well known that the human brain is good in remembering persons.
