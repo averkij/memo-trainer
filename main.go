@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
 	"regexp"
 	"strings"
 	"time"
@@ -16,21 +17,56 @@ import (
 //4. Recall the persons from the palace and translate them to numbers.
 
 func main() {
-	//cards training
+	args := os.Args[1:]
 
-	showTags := true
-	sec := 4
-	itemsPerLine := 8
-	trainPersons(52, sec, itemsPerLine, showTags)
+	if len(args) > 0 {
 
-	//memory palace training
+		fmt.Println(args)
 
-	reverse := false
-	random := false
-	showTag := false
-	showNumber := true
-	oneLine := true
-	trainPalace(2, reverse, random, showTag, showNumber, oneLine)
+		if args[0] == "1" {
+			fmt.Println("\nPersons training...\n")
+			time.Sleep(time.Second * time.Duration(3))
+			//start with default parameters
+			trainPersons(52, 3, 5, true)
+			return
+		} else if args[0] == "2" {
+			fmt.Println("\nMemory palace training...\n")
+			time.Sleep(time.Second * time.Duration(3))
+			//start with default parameters
+			trainPalace(2, false, false, false, true, true)
+			return
+		}
+	}
+
+	var mode string
+	for mode != "1" && mode != "2" {
+		fmt.Println("Choose the mode: [1] Persons training, [2] Memory palace training")
+		fmt.Scan(&mode)
+	}
+
+	if mode == "1" {
+		//persons training
+
+		fmt.Println("\nPersons training...\n")
+		time.Sleep(time.Second * time.Duration(3))
+
+		showTags := true
+		sec := 4
+		itemsPerLine := 8
+		trainPersons(52, sec, itemsPerLine, showTags)
+	} else if mode == "2" {
+		//memory palace training
+
+		fmt.Println("\nMemory palace training...\n")
+		time.Sleep(time.Second * time.Duration(3))
+
+		reverse := false
+		random := false
+		showTag := false
+		showNumber := true
+		oneLine := true
+		trainPalace(2, reverse, random, showTag, showNumber, oneLine)
+	}
 }
 
 func trainPersons(cardsAmount, intervalInSeconds, itemsPerLine int, showTags bool) {
@@ -138,8 +174,6 @@ func trainPersons(cardsAmount, intervalInSeconds, itemsPerLine int, showTags boo
 		98: {"метла     ", "b"},
 		99: {"топор     ", "b"}}
 
-	fmt.Println()
-
 	for i := 0; i < cardsAmount; i++ {
 		n := rnd.Int31n(100)
 		if n < 10 {
@@ -231,7 +265,6 @@ func trainPalace(intervalInSeconds int, reverse, random, showTag, showNumber, on
 
 	rx := regexp.MustCompile("\\[.*\\]\\s")
 
-	fmt.Print("\n")
 	var k int
 	for i := 1; i <= 52; i++ {
 		k = i
