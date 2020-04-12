@@ -1,3 +1,3 @@
-module github.com/averkij/memo-tainer
+module github.com/averkij/memo-trainer
 
 go 1.14
