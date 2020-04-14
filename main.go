@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"os"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -23,17 +24,21 @@ func main() {
 
 		fmt.Println(args)
 
+		//quick start with default parameters
 		if args[0] == "1" {
 			fmt.Println("\nPersons training...\n")
 			time.Sleep(time.Second * time.Duration(3))
-			//start with default parameters
 			trainPersons(52, 3, 5, true)
 			return
 		} else if args[0] == "2" {
 			fmt.Println("\nMemory palace training...\n")
 			time.Sleep(time.Second * time.Duration(3))
-			//start with default parameters
 			trainPalace(2, false, false, false, true, true)
+			return
+		} else if args[0] == "3" {
+			fmt.Println("\nTraining pairs...\n")
+			time.Sleep(time.Second * time.Duration(3))
+			trainPairs(52, 8, 10)
 			return
 		}
 	}
@@ -52,7 +57,7 @@ func main() {
 
 		showTags := true
 		sec := 4
-		itemsPerLine := 8
+		itemsPerLine := 5
 		trainPersons(52, sec, itemsPerLine, showTags)
 	} else if mode == "2" {
 		//memory palace training
@@ -67,6 +72,29 @@ func main() {
 		oneLine := true
 		trainPalace(2, reverse, random, showTag, showNumber, oneLine)
 	}
+}
+
+//train dense person + object pairs (3288, 9723, etc.)
+func trainPairs(cardsAmount, intervalInSeconds, itemsPerLine int) {
+	seed := rand.NewSource(time.Now().UnixNano())
+	rnd := rand.New(seed)
+
+	for i := 0; i < cardsAmount; i++ {
+		n := rnd.Int31n(10000)
+
+		//add leading zeros
+		for i := 0; i < 4-len(strconv.Itoa(int(n))); i++ {
+			fmt.Print("0")
+		}
+
+		fmt.Print(n, " ")
+		time.Sleep(time.Second * time.Duration(intervalInSeconds))
+
+		if (i+1)%itemsPerLine == 0 {
+			fmt.Print("\n\n")
+		}
+	}
+	fmt.Println("Done.")
 }
 
 func trainPersons(cardsAmount, intervalInSeconds, itemsPerLine int, showTags bool) {
@@ -214,7 +242,7 @@ func trainPalace(intervalInSeconds int, reverse, random, showTag, showNumber, on
 		7:  "[Часть] Дела",
 		8:  "[Часть] Плац",
 		9:  "[Часть] Холм",
-		10: "[Часть] РЛС",
+		10: "[Часть] Фото",
 
 		11: "[КП] Вход в бункер",
 		12: "[КП] Секретка",
