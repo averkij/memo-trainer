@@ -27,17 +27,17 @@ func main() {
 		//quick start with default parameters
 		if args[0] == "1" {
 			fmt.Println("\nPersons training...\n")
-			time.Sleep(time.Second * time.Duration(3))
+			time.Sleep(time.Second * time.Duration(2))
 			trainPersons(52, 3, 5, true)
 			return
 		} else if args[0] == "2" {
 			fmt.Println("\nMemory palace training...\n")
-			time.Sleep(time.Second * time.Duration(3))
-			trainPalace(2, false, false, false, true, true)
+			time.Sleep(time.Second * time.Duration(2))
+			trainPalace(1, false, false, false, true, true)
 			return
 		} else if args[0] == "3" {
 			fmt.Println("\nTraining pairs...\n")
-			time.Sleep(time.Second * time.Duration(3))
+			time.Sleep(time.Second * time.Duration(2))
 			trainPairs(52, 8, 10)
 			return
 		}
@@ -157,7 +157,7 @@ func trainPersons(cardsAmount, intervalInSeconds, itemsPerLine int, showTags boo
 		53: {"костер    ", "b"},
 		54: {"пиво      ", "b"},
 		55: {"голубь    ", "b"},
-		56: {"венок     ", "b"},
+		56: {"цветы     ", "b"},
 		57: {"бассейн   ", "b"},
 		58: {"микрофон  ", "b"},
 		59: {"пудель    ", "b"},
@@ -194,7 +194,7 @@ func trainPersons(cardsAmount, intervalInSeconds, itemsPerLine int, showTags boo
 		90: {"обои      ", "b"},
 		91: {"яхта      ", "b"},
 		92: {"ж. человек", "b"},
-		93: {"борода   ", "b"},
+		93: {"борода    ", "b"},
 		94: {"скальпель ", "b"},
 		95: {"лыжи      ", "b"},
 		96: {"кокос     ", "b"},
