@@ -117,7 +117,7 @@ func trainPersons(cardsAmount, intervalInSeconds, itemsPerLine int, showTags boo
 		13: {"часы      ", "b"},
 		14: {"помада    ", "b"},
 		15: {"перо      ", "b"},
-		16: {"тату      ", "b"},
+		16: {"купола    ", "b"},
 		17: {"леденец   ", "b"},
 		18: {"пачка     ", "b"},
 		19: {"листья    ", "b"},
